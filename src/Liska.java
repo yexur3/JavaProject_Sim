@@ -20,6 +20,27 @@ public class Liska extends Zviera{
 
     @Override
     public Zviera interaguj(Zviera cudzieZviera) {
+        if(!nazive){
+            return null;
+        }
+        if(cudzieZviera instanceof Liska){
+            if(this.vek > dospelost && cudzieZviera.vek > dospelost){
+                System.out.println("L: mnozim sa");
+                Liska liska = new Liska();
+                return liska;
+            } else {
+                System.out.println("L: vek dospelosti este ne je");
+                return null;
+            }
+        } else if(cudzieZviera instanceof Zajac){
+            if(sytost < 2 * plna_sytost / 3){
+                System.out.println("L: zrijem zajca");
+                cudzieZviera.zomri();
+                sytost++;
+            } else {
+                System.out.println("L: sytost plna, nie zrijem");
+            }
+        }
         return null;
     }
 
@@ -40,5 +61,9 @@ public class Liska extends Zviera{
     public void zomri(){
         super.zomri();
         pocetZyvichLysok--;
+    }
+
+    public static int getPocetZyvichLysok(){
+        return pocetZyvichLysok;
     }
 }

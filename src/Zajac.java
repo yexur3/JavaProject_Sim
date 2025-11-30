@@ -1,8 +1,10 @@
 public class Zajac extends Zviera{
-    private int dlzkaZivota;
+    private static final int dlzkaZivota = 30;
+    private static final int dospelost = 10;
+    private static int pocetZyvichZajcov = 0;
 
-    public Zajac(int vek){
-        super(vek);
+    public Zajac(){
+        pocetZyvichZajcov++;
     }
 
     @Override
