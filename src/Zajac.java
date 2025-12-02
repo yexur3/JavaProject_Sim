@@ -14,6 +14,17 @@ public class Zajac extends Zviera{
 
     @Override
     public Zviera interaguj(Zviera cudzieZviera) {
+        if(cudzieZviera instanceof Zajac){
+            if(this.vek > dospelost && cudzieZviera.vek > dospelost){
+                System.out.println("Z: mnozim sa");
+                Zajac zajac = new Zajac();
+                return zajac;
+            } else {
+                System.out.println("Z: vek dospelosti este ne je");
+                return null;
+            }
+        }
+
         return null;
     }
 
